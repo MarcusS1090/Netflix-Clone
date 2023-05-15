@@ -1,6 +1,8 @@
 //aqui vamos a crear la pestaña de login o sign in
 import Input from "@/components/Input";
 import { useCallback, useState } from "react";
+import axios from "axios";
+import {signIn } from 'next-auth/react';
 
 const Auth = () => {
     //vamos a crear nuestros estados para nuestros inputs
@@ -16,6 +18,37 @@ const Auth = () => {
     const toggleVariant = useCallback(() => {
         setVariant((currentVariant) => currentVariant === 'login' ? 'register' : 'login');
     },[])
+
+    //con esta funcion vamos a poder manejar el registro
+    const register = useCallback(async () => {
+        try {
+            await axios.post('/api/register', {
+                email,
+                name,
+                password
+            });
+        }
+        catch (error) {
+            console.log(error);
+            
+        }
+    }, [email, name, password]);
+
+    const login = useCallback(async () => {
+        try {
+            await signIn('credentials', {
+                email,
+                password,
+                redirect: false,
+                callbackUrl: '/'
+            });
+
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }, [email, password])
+
     return (
         <div className="
                 relative
@@ -83,7 +116,9 @@ const Auth = () => {
                                 value={password}
                             />
                         </div>
-                        <button className="
+                        <button
+                            onClick={variant === 'login' ? login : register}
+                            className="
                             bg-red-600
                             py-3
                             text-white
