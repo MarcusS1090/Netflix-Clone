@@ -20,7 +20,7 @@ const Auth = () => {
     // redireccione al registro
     const toggleVariant = useCallback(() => {
         setVariant((currentVariant) => currentVariant === 'login' ? 'register' : 'login');
-    },[])
+    },[]);
 
     //con esta funcion vamos a poder manejar el registro
     const register = useCallback(async () => {
@@ -42,15 +42,14 @@ const Auth = () => {
             await signIn('credentials', {
                 email,
                 password,
-                redirect: false,
-                callbackUrl: '/'
+                callbackUrl: '/profiles'
             });
 
         } catch (error) {
             console.log(error);
             
         }
-    }, [email, password])
+    }, [email, password]);
 
     return (
         <div className="
@@ -132,11 +131,11 @@ const Auth = () => {
                             transition
                             "
                         >
-                            {variant === 'login' ? 'Login' : 'Sign Up' }
+                            {variant === 'login' ? 'Login' : 'Sign up'}
                         </button>
                         <div className="flex flex-row items-center gap-4 mt-8 justify-center">
                                 <div 
-                                    onClick={() => signIn('google', { callbackUrl: '/'})} 
+                                    onClick={() => signIn('google', { callbackUrl: '/profiles'})} 
                                     className="
                                         w-10
                                         h-10
@@ -153,7 +152,7 @@ const Auth = () => {
                                     <FcGoogle size={30}/>
                                 </div>
                                 <div
-                                    onClick={() => signIn('github', { callbackUrl: '/'})}
+                                    onClick={() => signIn('github', { callbackUrl: '/profiles'})}
                                     className="
                                         w-10
                                         h-10

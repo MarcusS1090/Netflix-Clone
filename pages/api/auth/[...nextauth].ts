@@ -19,10 +19,11 @@ export default NextAuth ({
             clientId: process.env.GITHUB_ID || '',
             clientSecret: process.env.GITHUB_SECRET || ''
         }),
-        /*GoogleProvider({
+        GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID || '',
             clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
         }),
+        /*
         InstagramProvider({
             clientId: process.env.INSTAGRAM_CLIENT_ID || '',
             clientSecret: process.env.INSTAGRAM_CLIENT_SECRET || '',
