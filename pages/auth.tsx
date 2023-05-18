@@ -3,6 +3,7 @@ import Input from "@/components/Input";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import {signIn } from 'next-auth/react';
+import Image from "next/image";
 
 const Auth = () => {
     //vamos a crear nuestros estados para nuestros inputs
@@ -67,7 +68,7 @@ const Auth = () => {
                     "
                 >
                     <nav className="px-12 py-5">
-                        <img src="/image/logo.png" alt="logo" className="h-12" />
+                        <Image src="/image/logo.png" alt="logo" className="h-12" width={150} height={150}/>
                     </nav>
                     <div className="flex justify-center">
                         <div className="
