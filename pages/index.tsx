@@ -1,7 +1,9 @@
 
+import NavBar from "@/components/NavBar";
 import useCurrentUser from "@/hooks/useCurrentUser";
+
 import { NextPageContext } from "next"
-import { getSession, signOut } from "next-auth/react"
+import { getSession } from "next-auth/react"
 
 //vamos a protger nuestra index page o Home
 //con esto verificamos que haya una sesion en curso
@@ -28,14 +30,7 @@ export default function Home() {
   const { data: user } = useCurrentUser();
   return (
     <>
-      <h1 className="text-2xl text-green-500">Netflix Clone</h1>
-      <p className="text-white">Logged in as: {user?.name}</p>
-      <button 
-        className="h-10 w-full bg-white"
-        onClick={() => signOut()}
-      >
-        Logout
-      </button>
+      <NavBar />
     </>
   )
 }
