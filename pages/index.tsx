@@ -1,4 +1,5 @@
 
+import Billboard from "@/components/Billboard";
 import NavBar from "@/components/NavBar";
 import useCurrentUser from "@/hooks/useCurrentUser";
 
@@ -31,6 +32,7 @@ export default function Home() {
   return (
     <>
       <NavBar />
+      <Billboard />
     </>
   )
 }
