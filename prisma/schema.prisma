@@ -47,7 +47,7 @@ model Account {
 //a referenciar la eliminacion del user de la base de datos
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider,providerAccountId])
+  @@unique([provider, providerAccountId])
 }
 
 //este es el model para cuando iniciamos sesion y nos dan un token
@@ -57,7 +57,7 @@ model Session {
   userId                 String @db.ObjectId
   expires                DateTime
 
-  use User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 //este model verificamos el token de sesion

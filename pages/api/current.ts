@@ -3,14 +3,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import serverAuth from "@/lib/serverAuth";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    //vamos a limitarla a solo obtener request
-    if (req.method !== 'GET') {
-        return res.status(405).end();
-    }
-
     try {
+        //vamos a limitarla a solo obtener request
+        if (req.method !== 'GET') {
+            return res.status(405).end();
+        }
         //vamos a hacer fetch a nuestro current user usando serverAuth
-        const { currentUser } = await serverAuth(req);
+        const { currentUser } = await serverAuth(req, res);
 
         return res.status(200).json(currentUser);
     } catch (error) {

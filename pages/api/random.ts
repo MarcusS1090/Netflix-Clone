@@ -4,14 +4,13 @@ import prismadb from '@/lib/prismadb';
 import serverAuth from "@/lib/serverAuth";
 
 export default async function handler(req:NextApiRequest, res: NextApiResponse) {
-    //aqui le decimos que si hay una peticion tipo GET que no la realice
-    if (req.method !== 'GET') {
-        return res.status(405).end();
-    }
-
     try {
+        //aqui le decimos que si hay una peticion tipo GET que no la realice
+        if (req.method !== 'GET') {
+            return res.status(405).end();
+        }
         //aqui vamos a ver que la session este activa para poder mostrar nuestras peliculas
-        await serverAuth(req);
+        await serverAuth(req, res);
 
         //aqui vamos a hacer el random movie para cada vez que refrescamos la pagina
         const movieCount = await prismadb.movie.count();

@@ -1,19 +1,18 @@
 import useSwr from 'swr';
 import fetcher from '@/lib/fetcher';
 
-const useMovieList = () =>{
-    const { data,error, isLoading } = useSwr('/api/movies', fetcher, {
-        //para no hacer tantas llamdas a la api 
+const useFavorites = () => {
+    const { data, error, isLoading, mutate } = useSwr('/api/favorites', fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
     });
-
-    return{
+    return {
         data,
         error,
-        isLoading
+        isLoading,
+        mutate
     }
 };
 
-export default useMovieList;
+export default useFavorites;

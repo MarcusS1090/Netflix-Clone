@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {TbPlayerPlayFilled} from 'react-icons/tb'
+import FavoriteButton from './FavoriteButton';
 
 interface MovieCardProps {
     data: Record<string, any>;
@@ -95,6 +96,7 @@ const MovieCard:React.FC<MovieCardProps> = ({ data }) => {
                                 >
                                     <TbPlayerPlayFilled size={23} />
                                 </div>
+                                <FavoriteButton movieId={data?.id} />
                             </div>
 
                         <p className="text-green-400 font-semibold mt-4">
