@@ -31,7 +31,7 @@ const AccountMenu:React.FC<AccountMenuProps> = ({
         >
             <div className='flex flex-col gap-3'>
 
-                <div className='px-3 group/item flex flex row gap-3 items-center w-full'>
+                <div className='px-3 group/item flex flex-row gap-3 items-center w-full'>
                     <img className="w-8 rounded-md" src="/image/default-slate.png" alt="" />
                     <p className="text-white text-sm group-hover/item:underline">
                         {data?.name}
