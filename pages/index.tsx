@@ -3,6 +3,7 @@ import Billboard from "@/components/Billboard";
 import InfoModal from "@/components/InfoModal";
 import MovieList from "@/components/MovieList";
 import NavBar from "@/components/NavBar";
+
 import useFavorites from "@/hooks/useFavorites";
 import useInfoModal from "@/hooks/useInfoModal";
 import useMovieList from "@/hooks/useMovieList";

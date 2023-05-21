@@ -22,8 +22,8 @@ const Input: React.FC<InputProps> = ({
         <div className="relative">
             <input
                 onChange={onChange}
-                type={type}
                 value={value}
+                type={type}
                 id={id}
                 className="
                     block
